@@ -20,6 +20,18 @@ admin'--と入力すると
 SELECT * FROM users WHERE username = 'administrator'--' AND password = ''というクエリが飛び
 adminユーザーとしてパスワードなしでログインできてしまう
 
+例3  他のデータベーステーブルからデータを取得する（あとでまとめる）
+UNION攻撃
+
+例4  ブラインドSQLインジェクションの脆弱性
+
+例5  二次SQLインジェクション
+
+例6  データベースの調査
+
+例7  さまざまなコンテキストでのSQLインジェクション
+
+
 
 SQLiを防ぐ方法
 
