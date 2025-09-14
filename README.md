@@ -64,11 +64,16 @@ List<Item> items = itemRepository.findByCategory(category);
 - 内部でパラメータ化クエリが使われているため安全
 - 生SQLを自作するより簡単で安全
 
-### その他のSQLi防止策
-- 入力値のバリデーション・サニタイズ
-- PreparedStatementの利用（生SQLが必要な場合）
-- エラーメッセージを詳細に返さない
-- 権限管理と最小権限の徹底
+### SQLi防止策
+- パラメータバインドする
+'''
+@Query("SELECT u FROM User u WHERE u.username = :username")
+User findByUsername(@Param("username") String username);
+'''
+- 入力検証（長さ/形式）
+- エラーメッセージをクライアントに返さない
+- DBエラーをそのまま返すと Blind SQLi がやりやすくなる
+- ログや監査で不正なパターンを検知する
 
 ## 4. 注意喚起
 - SQLiは未だに頻発する脆弱性
