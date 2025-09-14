@@ -24,7 +24,7 @@ adminユーザーとしてパスワードなしでログインできてしまう
 UNION攻撃
 
 例4  ブラインドSQLインジェクションの脆弱性
-
+https://github.com/rokloc/blind-SQLi
 例5  二次SQLインジェクション
 
 例6  データベースの調査
