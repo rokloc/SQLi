@@ -33,6 +33,27 @@ https://github.com/rokloc/blind-SQLi
 
 
 
+
+〇対策
+Spring Data JPA / CrudRepository を使う
+Spring Boot なら JPA を使うと、ほとんどの場合自動で SQLi 対策されます。
+
+@Repository
+public interface ItemRepository extends JpaRepository<Item, Long> {
+    List<Item> findByCategory(String category);
+}
+
+
+呼び出し側：
+
+List<Item> items = itemRepository.findByCategory(category);
+
+
+パラメータ化クエリが内部で使われているため安全
+
+生 SQL を自作するより簡単で安全
+
+
 SQLiを防ぐ方法
 
 
